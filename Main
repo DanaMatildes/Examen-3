@@ -1,0 +1,71 @@
+package prueba_csv;
+import java.util.HashMap;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+	   public static void main(String[] args) {
+		   
+		  File file = new File("C:\\Users\\52733\\OneDrive\\Documentos\\programación\\emails.csv");
+		  FileReader fileReader;
+		try {
+			fileReader = new FileReader(file);
+			BufferedReader bufReader = new BufferedReader(fileReader);
+			
+			try {
+				
+				String myString;
+				int[] sumas = new int[3002];
+				HashMap<String, Integer> miMapa = new HashMap<>();
+				
+				myString = bufReader.readLine();
+				String[] words = myString.split(",");
+				System.out.println("long" + words.length);
+				
+				
+				for(int i=0; i<7; i++) {
+					
+				myString = bufReader.readLine();
+				
+				String[] cantidades = myString.split(",");
+				
+				for(int p=1; p<cantidades.length; p++) {
+					
+					String a = cantidades[p];
+					int q = Integer.parseInt(a);
+					System.out.println(q);
+					sumas[p] = sumas[p]+q;
+					}
+				
+				
+				}
+				
+				
+				for(int i=1; i<sumas.length; i++) {
+					miMapa.put(words[i], sumas[i]);
+				}
+				
+				System.out.print(miMapa);
+			
+				
+			}catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		 
+	      
+	   }
+}
