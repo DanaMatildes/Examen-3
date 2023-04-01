@@ -31,9 +31,6 @@ public class Lector {
 			}else if(idInicio!=0) {
 				idFinal = idInicio+49;
 			}
-			System.out.println(idInicio);
-			System.out.print(idFinal);
-			
 			
 			try {
 				
@@ -83,6 +80,7 @@ public class Lector {
 			
 			miPrintWriter.close();
 		
+			System.out.print("Archivo creado");	
 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
